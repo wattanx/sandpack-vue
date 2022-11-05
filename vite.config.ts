@@ -6,11 +6,6 @@ import { resolve } from 'path';
 export default defineConfig({
   plugins: [vue()],
   build: {
-    lib: {
-      entry: resolve(__dirname, 'src/index.ts'),
-      fileName: (ext) => `index.${ext}.js`,
-      formats: ['es', 'cjs'],
-    },
     rollupOptions: {
       external: [
         'vue-demi',
