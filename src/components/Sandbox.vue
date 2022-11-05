@@ -1,16 +1,10 @@
-<template>
-  <div>
-    <iframe ref="editor" />
-  </div>
-</template>
-
 <script setup lang="ts">
 import {
   ClientOptions,
   SandpackClient,
   SandboxInfo,
 } from '@codesandbox/sandpack-client';
-import { ref, onMounted, watch, PropType } from 'vue';
+import { ref, onMounted, watch, PropType } from 'vue-demi';
 
 const props = defineProps({
   info: {
@@ -46,6 +40,11 @@ watch(
   }
 );
 </script>
+<template>
+  <div>
+    <iframe ref="editor" title="Sandpack Preview" />
+  </div>
+</template>
 
 <style scoped>
 iframe {

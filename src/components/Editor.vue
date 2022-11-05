@@ -1,16 +1,3 @@
-<template>
-  <div ref="wrapper" class="wrapper">
-    <FileSelector
-      v-if="hasVisibleFiles"
-      class="selector"
-      :active-index="activeFileIndex"
-      :files="files"
-      :theme="theme"
-      @select="handleFileSelect"
-    />
-  </div>
-</template>
-
 <script setup lang="ts">
 import { defaultHighlightStyle } from '@codemirror/highlight';
 import { css } from '@codemirror/lang-css';
@@ -30,6 +17,7 @@ import {
   getSyntaxHighlight,
   themeEditor,
 } from '../utils/theme';
+import { getLanguageFromFile } from '../utils/getLangualgeFromFile';
 import FileSelector from './FileSelector.vue';
 const props = defineProps({
   files: {
@@ -54,8 +42,10 @@ let editor: EditorView | null = null;
 function getLanguage(type: FileType) {
   switch (type) {
     case 'ts':
-      return javascript({ typescript: true, jsx: false });
+      return javascript({ typescript: true, jsx: true });
     case 'html':
+      return html();
+    case 'vue':
       return html();
     case 'css':
       return css();
@@ -112,6 +102,19 @@ onMounted(() => {
   });
 });
 </script>
+
+<template>
+  <div ref="wrapper" class="wrapper">
+    <FileSelector
+      v-if="hasVisibleFiles"
+      class="selector"
+      :active-index="activeFileIndex"
+      :files="files"
+      :theme="theme"
+      @select="handleFileSelect"
+    />
+  </div>
+</template>
 
 <style scoped>
 .wrapper {

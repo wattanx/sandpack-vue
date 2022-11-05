@@ -1,4 +1,4 @@
-export type FileType = 'html' | 'css' | 'ts';
+export type FileType = string;
 
 export interface File {
   value: string;
