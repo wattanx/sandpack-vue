@@ -6,19 +6,6 @@ import { resolve } from 'path';
 export default defineConfig({
   plugins: [vue()],
   build: {
-    rollupOptions: {
-      external: [
-        'vue-demi',
-        'vue',
-        '@codemirror/highlight',
-        '@codemirror/lang-css',
-        '@codemirror/lang-html',
-        '@codemirror/lang-javascript',
-        '@codemirror/state',
-        '@codemirror/view',
-        '@codesandbox/sandpack-client',
-      ],
-    },
     target: 'esnext',
     sourcemap: false,
   },
