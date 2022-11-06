@@ -7,7 +7,6 @@
 </template>
 <script lang="ts">
 import { Sandbox, Editor, File } from './index';
-import '../dist/style.css';
 import { defineComponent, ref, computed } from 'vue-demi';
 import {
   appVue,
