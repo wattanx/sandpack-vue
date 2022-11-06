@@ -20,14 +20,21 @@ ${script}
 </script>`;
 };
 
-export const appVue = `<script setup>
-import { ref } from 'vue';
-const msg = ref('Hello');
-</script>
-<template>
+export const appVue = `<template>
   <h1>{{ msg }}</h1>
   <p>This file is visible</p>
-</template>`;
+</template>
+<script>
+import { defineComponent, ref } from 'vue';
+export default defineComponent({
+  setup() {
+    const msg = ref('Hello');
+    return {
+      msg
+    }
+  }
+})
+</script>`;
 
 export const mainJs = `import { createApp } from 'vue';
 import App from './App.vue';
